@@ -28,8 +28,10 @@ public class Player : MonoBehaviour
         get { return life; }
         set
         {
-            OnPlayerLife?.Invoke(this, life, value);
-            life = value;
+            if (value != life) {
+                OnPlayerLife?.Invoke(this, life, value);
+                life = value;
+            }
         }
     }
 
@@ -38,8 +40,11 @@ public class Player : MonoBehaviour
         get { return floeLife; }
         set
         {
-            OnFloeLife?.Invoke(this, floeLife, value);
-            floeLife = value;
+            if (value != floeLife)
+            {
+                OnFloeLife?.Invoke(this, floeLife, value);
+                floeLife = value;
+            }
         }
     }
     #endregion Properties
@@ -59,7 +64,25 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         movementInput = controls.Player.Movement.ReadValue<Vector2>();
-        rb.velocity = movementInput * speed;
+
+        // Limit movement to the visible screen
+        var topRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        var bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        var position = transform.position;
+        position.x = Mathf.Clamp(position.x, bottomLeft.x, topRight.x);
+        position.y = Mathf.Clamp(position.y, bottomLeft.y, topRight.y);
+
+        var velocity = movementInput * speed;
+        if (position.x <= bottomLeft.x)
+            velocity.x = Mathf.Max(0, velocity.x);
+        if (position.x >= topRight.x)
+            velocity.x = Mathf.Min(0, velocity.x);
+        if (position.y <= bottomLeft.y)
+            velocity.y = Mathf.Max(0, velocity.y);
+        if (position.y >= topRight.y)
+            velocity.y = Mathf.Min(0, velocity.y);
+
+        rb.velocity = velocity;
     }
 
     void OnEnable()

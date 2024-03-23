@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class FloatingObject : ScriptableObject
+public class FloatingObjectSO : ScriptableObject
 {
     public GameObject prefab;
     public Sprite sprite;
