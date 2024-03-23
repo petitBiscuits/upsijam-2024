@@ -270,6 +270,8 @@ MonoBehaviour:
   player: {fileID: 0}
   oceanGO: {fileID: 0}
   endFloeGO: {fileID: 0}
+  _currentScore: 0
+  _score: 0
 --- !u!1 &702370141
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +520,8 @@ MonoBehaviour:
   DEFAULT_OCEAN_SPEED: 1
   DEFAULT_SPAWN_WEIGHT: 1
   DEFAULT_SPAWN_PROBA: 30
+  MAX_TO_SPAWN: 5
+  MAX_BEAR_PER_FLOE: 2
 --- !u!1001 &1719807456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -658,6 +662,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
+      propertyPath: _floatingObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
+      propertyPath: '_floatingObjects.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2701434012123906939, guid: 596de7b56c9307a4dac6af20a02c0471, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

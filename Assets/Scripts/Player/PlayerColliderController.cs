@@ -38,6 +38,16 @@ public class PlayerColliderController : MonoBehaviour
             {
                 gameManager.AddScore(floatingObjectSo.score);
             }
+            if (floatingObjectSo.playerDamage != 0)
+            {
+                player.BearCount -= floatingObjectSo.playerDamage;
+            }
+            if (floatingObjectSo.floeDamage != 0)
+            {
+                player.FloeLife -= floatingObjectSo.floeDamage;
+                var maxBear = player.FloeLife * SettingsManager.Instance.MAX_BEAR_PER_FLOE;
+                player.BearCount = Mathf.Clamp(player.BearCount, 0, maxBear);
+            }
 
             Destroy(collider.gameObject);
         }

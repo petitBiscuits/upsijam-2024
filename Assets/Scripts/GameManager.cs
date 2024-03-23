@@ -173,6 +173,8 @@ public class GameManager : MonoBehaviour
     private void OnBearCountChange(Player player, int before, int now)
     {
         print($"Player life change from {before} to {now}");
+        if (now <= 0)
+            print("LOSE !!!");
     }
 
     private void Start()

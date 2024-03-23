@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b951245117eb442eeb8549bad317e2dd, type: 3}
-  m_Name: Fish
+  m_Name: Rock
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   sprite: {fileID: 0}
   score: 0
-  playerDamage: 1
-  floeDamage: 0
+  playerDamage: 0
+  floeDamage: 1

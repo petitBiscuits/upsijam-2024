@@ -129,7 +129,6 @@ public class OceanManager : MonoBehaviour
         {
             float spawnProba = SettingsManager.Instance.DEFAULT_SPAWN_PROBA;
             var rnd = Random.Range(0, 100);
-            print($"rnd: {rnd} spawnProba: {spawnProba}");
             if (rnd < spawnProba)
             {
                 nbToSpawn++;

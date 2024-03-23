@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2880436965931378876}
   - component: {fileID: 6067911739355593746}
   m_Layer: 0
-  m_Name: Waste
+  m_Name: Rock
   m_TagString: FloatingObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.7056604, g: 0.53094894, b: 0.02529716, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c840d454c9de841218eca8613ff5e1fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingObjectSO: {fileID: 11400000, guid: afd9927b4c02b3548b5a5eb87e252809, type: 2}
+  floatingObjectSO: {fileID: 11400000, guid: b97815a10f8b3b84e9b64294de1469db, type: 2}
 --- !u!58 &6067911739355593746
 CircleCollider2D:
   m_ObjectHideFlags: 0

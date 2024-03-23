@@ -12,6 +12,7 @@ public class SettingsManager : MonoBehaviour
     public int DEFAULT_SPAWN_WEIGHT = 1;
     public int DEFAULT_SPAWN_PROBA = 40; // 40%
     public int MAX_TO_SPAWN = 5;
+    public int MAX_BEAR_PER_FLOE = 2;
 
     public static SettingsManager Instance { get; private set; }
     
