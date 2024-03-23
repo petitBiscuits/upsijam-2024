@@ -1,0 +1,11 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/USS/main-style.uss?fileID=7433441132597879392&amp;guid=4736a6e4ff2a145118428826e09a2b7d&amp;type=3#main-style" />
+    <engine:VisualElement style="flex-grow: 1; align-items: center; justify-content: space-evenly; background-color: rgb(26, 36, 36);">
+        <engine:Label text="Ocean Cleaner" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght%20SDF.asset?fileID=11400000&amp;guid=4c38dd8006879409db8135de8df99d70&amp;type=2#PixelifySans-VariableFont_wght SDF&quot;); -unity-font-style: normal; font-size: 100px; color: rgb(255, 255, 255);" />
+        <engine:VisualElement name="VisualElement" style="flex-grow: initial; width: initial; height: 40%; justify-content: space-evenly;">
+            <engine:Button text="Play" name="play" class="btn" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght%20SDF.asset?fileID=11400000&amp;guid=4c38dd8006879409db8135de8df99d70&amp;type=2#PixelifySans-VariableFont_wght SDF&quot;); font-size: 35px;" />
+            <engine:Button text="Credit" name="credit" class="btn" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght%20SDF.asset?fileID=11400000&amp;guid=4c38dd8006879409db8135de8df99d70&amp;type=2#PixelifySans-VariableFont_wght SDF&quot;); font-size: 35px;" />
+            <engine:Button text="Quit" name="quit" class="btn" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght%20SDF.asset?fileID=11400000&amp;guid=4c38dd8006879409db8135de8df99d70&amp;type=2#PixelifySans-VariableFont_wght SDF&quot;); font-size: 35px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
