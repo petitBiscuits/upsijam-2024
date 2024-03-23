@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     #region Fields
+    private bool isEndReached;
     private int score = 0;
     [SerializeField] private List<FloatingObjectSO> availableFloatingObjectSO = new();
     /// <summary>
@@ -19,15 +20,16 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField] private int defaultSpawnWeight = 1;
     [SerializeField] private float travelSpeed = 2;
-    [SerializeField] private float traveledDistance = 0;
+    [SerializeField] private float distance = 0;
     [SerializeField] private float endDistance = 100;
     [SerializeField] private float nextSpawnInDistance = 10;
 
     [SerializeField] private int minSpawnInDistance = 5;
     [SerializeField] private int maxSpawnInDistance = 15;
+    [SerializeField] private int stopSpawnAfterDistance = 70;
 
     [SerializeField] private int spawnPositionOffset = 15;
-    [SerializeField] private int spawnEndFloeOffset = 100;
+    [SerializeField] private int spawnEndFloeOffset = 20;
 
     #endregion Fields
 
@@ -58,8 +60,8 @@ public class GameManager : MonoBehaviour
     }
     public Dictionary<GameObject, FloatingObjectSO> FloatingObjects { get; set; } = new();
 
-    public bool IsEndReached { get { return distance >= endDistance; } }
-    public bool IsEndInApproach { get { return distance + nextSpawnInDistance >= endDistance; } }
+    public bool IsEndReached { get { return isEndReached; } }
+    public bool IsEndInApproach { get { return distance + spawnEndFloeOffset >= endDistance; } }
 
     #endregion Properties
 
@@ -72,7 +74,6 @@ public class GameManager : MonoBehaviour
     
     #endregion Event
     
-    private float distance = 0;
     public static GameManager Instance { get; private set; }
 
     void Awake()
@@ -104,7 +105,9 @@ public class GameManager : MonoBehaviour
         // Distance traveled
         var traveled = travelSpeed * Time.fixedDeltaTime;
         oceanGO.transform.Translate(Vector3.left * traveled);
-        traveledDistance += traveled;
+        distance += traveled;
+        OnDistanceChange?.Invoke(distance);
+
         nextSpawnInDistance -= traveled;
         
         // Floating spawn
@@ -112,7 +115,7 @@ public class GameManager : MonoBehaviour
         var minSpawnY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1)).y;
         var maxSpawnY = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).y;
 
-        if (!IsEndInApproach && nextSpawnInDistance <= 0)
+        if (distance < stopSpawnAfterDistance && nextSpawnInDistance <= 0)
         {
             nextSpawnInDistance += UnityEngine.Random.Range(minSpawnInDistance, maxSpawnInDistance);
 
@@ -138,14 +141,15 @@ public class GameManager : MonoBehaviour
             floatingObject.transform.SetParent(oceanGO.transform);
 
             FloatingObjects.Add(floatingObject, objectToSpawn);
+        }
 
-            // Move end floe to the effective position
-            if (!isEndPlaced && IsEndInApproach)
-            {
-                var endFloePosition = new Vector3(leftScreenBorder + spawnEndFloeOffset, 0, 0);
-                endFloeGO.transform.position = endFloePosition;
-                isEndPlaced = true;
-            }
+        // Move end floe to the effective position
+        if (!isEndPlaced && IsEndInApproach)
+        {
+            print("End floe placed");
+            var endFloePosition = new Vector3(endDistance, 0, 0); // WIP Pour l'instant ça ne prend pas la bonne coordonée :(
+            endFloeGO.transform.position = endFloePosition;
+            isEndPlaced = true;
         }
     }
 
@@ -153,6 +157,7 @@ public class GameManager : MonoBehaviour
     {
         travelSpeed = 0;
         player.enabled = false;
+        isEndReached = true;
     }
 
     private void OnFloeLifeChange(Player player, int before, int now)
@@ -185,10 +190,7 @@ public class GameManager : MonoBehaviour
         if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             _multi.UpdateMulti(MultiOperation.Decrease);
-        }
-        
-        distance += Time.deltaTime;
-        OnDistanceChange?.Invoke(distance);
+        }   
     }
     
     IEnumerator UpdateScore()

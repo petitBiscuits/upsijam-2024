@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: endFloeGO
       value: 
       objectReference: {fileID: 1762198215}
+    - target: {fileID: 2362933050255673661, guid: b6c554bbb39b98f4d843fada21511668, type: 3}
+      propertyPath: spawnEndFloeOffset
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3526570592059952686, guid: b6c554bbb39b98f4d843fada21511668, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.8801365
