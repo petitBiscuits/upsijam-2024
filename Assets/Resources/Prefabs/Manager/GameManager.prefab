@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2353958407874257282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3526570592059952686}
+  - component: {fileID: 2362933050255673661}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3526570592059952686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353958407874257282}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.8801365, y: 2.6005332, z: -0.0316266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2362933050255673661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353958407874257282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4047e9db15b0dfb4ea3f7ae34821cfe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableFloatingObjectSO:
+  - {fileID: 11400000, guid: c4fee0cf2eaa62a409ff9e9300099de5, type: 2}
+  - {fileID: 11400000, guid: 1db2038676b655f46a232c257a672c39, type: 2}
+  availableFloatingObjectSpawnWeight: 
+  defaultSpawnWeight: 1
+  travelSpeed: 20
+  traveledDistance: 0
+  endDistance: 100
+  nextSpawnInDistance: 10
+  minSpawnInDistance: 5
+  maxSpawnInDistance: 15
+  spawnPositionOffset: 15
+  spawnEndFloeOffset: 100
+  player: {fileID: 0}
+  oceanGO: {fileID: 0}
+  endFloeGO: {fileID: 0}

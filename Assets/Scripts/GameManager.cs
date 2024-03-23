@@ -20,14 +20,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int defaultSpawnWeight = 1;
     [SerializeField] private float travelSpeed = 2;
     [SerializeField] private float traveledDistance = 0;
+    [SerializeField] private float endDistance = 100;
     [SerializeField] private float nextSpawnInDistance = 10;
 
     [SerializeField] private int minSpawnInDistance = 5;
     [SerializeField] private int maxSpawnInDistance = 15;
 
     [SerializeField] private int spawnPositionOffset = 15;
+    [SerializeField] private int spawnEndFloeOffset = 100;
 
     #endregion Fields
+
+    #region Fields for Flags
+    private bool isEndPlaced = false;
+    #endregion Fields for Flags
 
     #region Fields of Components
     [SerializeField] private Player player;
@@ -35,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     #region Fields of GameObjects
     [SerializeField] private GameObject oceanGO;
+    [SerializeField] private GameObject endFloeGO;
     #endregion Fields of GameObjects
 
     #region Properties
@@ -50,6 +57,9 @@ public class GameManager : MonoBehaviour
         set { availableFloatingObjectSO = value; }
     }
     public Dictionary<GameObject, FloatingObjectSO> FloatingObjects { get; set; } = new();
+
+    public bool IsEndReached { get { return distance >= endDistance; } }
+    public bool IsEndInApproach { get { return distance + nextSpawnInDistance >= endDistance; } }
 
     #endregion Properties
 
@@ -102,7 +112,7 @@ public class GameManager : MonoBehaviour
         var minSpawnY = Camera.main.ViewportToWorldPoint(new Vector3(0, 1)).y;
         var maxSpawnY = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).y;
 
-        if (nextSpawnInDistance <= 0)
+        if (!IsEndInApproach && nextSpawnInDistance <= 0)
         {
             nextSpawnInDistance += UnityEngine.Random.Range(minSpawnInDistance, maxSpawnInDistance);
 
@@ -128,7 +138,21 @@ public class GameManager : MonoBehaviour
             floatingObject.transform.SetParent(oceanGO.transform);
 
             FloatingObjects.Add(floatingObject, objectToSpawn);
+
+            // Move end floe to the effective position
+            if (!isEndPlaced && IsEndInApproach)
+            {
+                var endFloePosition = new Vector3(leftScreenBorder + spawnEndFloeOffset, 0, 0);
+                endFloeGO.transform.position = endFloePosition;
+                isEndPlaced = true;
+            }
         }
+    }
+
+    public void ReachedEnd()
+    {
+        travelSpeed = 0;
+        player.enabled = false;
     }
 
     private void OnFloeLifeChange(Player player, int before, int now)

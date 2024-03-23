@@ -19,10 +19,14 @@ public class PlayerColliderController : MonoBehaviour
         if (playerGO == null)
             throw new System.Exception("Player not found");
 
-        gameManager = GameManager.Instance;
         player = playerGO.GetComponent<Player>();
 
         print($"Hello {player}");
+    }
+
+    void Start()
+    {
+        gameManager = GameManager.Instance;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -33,6 +37,10 @@ public class PlayerColliderController : MonoBehaviour
             player.FloeLife -= floatingObject.floeDamage;
             player.Life -= floatingObject.playerDamage;
             gameManager.AddScore(floatingObject.score);
+        }
+        else if (collider.gameObject.CompareTag("EndFloe"))
+        {
+            gameManager.ReachedEnd();
         }
 
         print($"Collision !! {player} and {collider.gameObject.tag}");

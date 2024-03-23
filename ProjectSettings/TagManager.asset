@@ -9,6 +9,7 @@ TagManager:
   - Floe
   - Bear
   - Rock
+  - EndFloe
   layers:
   - Default
   - TransparentFX
