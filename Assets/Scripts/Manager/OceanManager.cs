@@ -31,7 +31,7 @@ public class OceanManager : MonoBehaviour
         GameManager.Instance.OnScoreChange += Instance_OnScoreChange;
     }
 
-    private void Instance_OnScoreChange(GameManager sender, bool isMultiMax, int score)
+    private void Instance_OnScoreChange(bool isMultiMax, int score)
     {
         var speedMultiplier = ScoreManager.CalcOceanSpeedMultiplier(score);
         _oceanSpeed = SettingsManager.Instance.DEFAULT_OCEAN_SPEED * speedMultiplier;
