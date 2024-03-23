@@ -2,12 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+public enum GameState
+{
+    LevelStage,
+    EndLevelStage,
+    EndScreen,
+    UnlimitedStage,
+    Paused,
+    GameOver
+}
 
 public class GameManager : MonoBehaviour
 {
     #region Fields
+    public GameState GameState = GameState.LevelStage;
     private bool isEndReached;
     private int score = 0;
     [SerializeField] private List<FloatingObjectSO> availableFloatingObjectSO = new();
@@ -190,7 +202,11 @@ public class GameManager : MonoBehaviour
         if (Keyboard.current.sKey.wasPressedThisFrame)
         {
             _multi.UpdateMulti(MultiOperation.Decrease);
-        }   
+        } 
+        if (Keyboard.current.gKey.wasPressedThisFrame)
+        {
+            GameState = GameState.EndLevelStage;
+        }
     }
     
     IEnumerator UpdateScore()
@@ -214,5 +230,10 @@ public class GameManager : MonoBehaviour
     public void AddScore(int floatingObjectScore)
     {
         _score += floatingObjectScore;
+    }
+
+    public void EndReached()
+    {
+        GameState = GameState.EndScreen;
     }
 }

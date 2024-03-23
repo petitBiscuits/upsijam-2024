@@ -41,5 +41,9 @@ public class PlayerColliderController : MonoBehaviour
 
             Destroy(collider.gameObject);
         }
+        else if (collider.gameObject.CompareTag("EndFloe"))
+        {
+            gameManager.EndReached();
+        }
     }
 }

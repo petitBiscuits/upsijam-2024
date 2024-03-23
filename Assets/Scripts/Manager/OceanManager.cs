@@ -5,6 +5,10 @@ using UnityEngine;
 public class OceanManager : MonoBehaviour
 {
     [SerializeField] private GameObject _oceanTilePrefab;
+    [SerializeField] private GameObject _oceanFloePrefab;
+    [SerializeField] private GameObject _floePrefab;
+    private bool _isFirstLayer = true;
+    private int _countDown = 15;
     [SerializeField] private List<GameObject> _floatingObjects = new List<GameObject>(); 
     
     [SerializeField] private float _oceanSpeed;
@@ -38,18 +42,7 @@ public class OceanManager : MonoBehaviour
             var oceanTile = Instantiate(_oceanTilePrefab, transform);
             oceanTile.transform.position = new Vector3(startX + i * widthTile, 0, 0);
             
-            AddObjectsToTile(oceanTile);
-            
             _oceanTiles.Add(oceanTile);
-        }
-    }
-
-    private void AddObjectsToTile(GameObject oceanTile)
-    {
-        foreach (var floatingObject in _floatingObjects)
-        {
-            var floatingObjectInstance = Instantiate(floatingObject, oceanTile.transform);
-            floatingObjectInstance.transform.localPosition = new Vector3(0, Random.Range(-heightTile / 2, heightTile / 2), 0);
         }
     }
 
@@ -78,11 +71,42 @@ public class OceanManager : MonoBehaviour
         {
             Destroy(_oceanTiles[0]);
             _oceanTiles.RemoveAt(0);
+
+            if (GameManager.Instance.GameState == GameState.EndLevelStage && _countDown <= 0)
+            {
+                if (_isFirstLayer)
+                {
+                    _isFirstLayer = false;
+                    AddNewLayer(_oceanFloePrefab);
+                }
+                AddNewLayer(_floePrefab);
+                return;
+            }
+            else if (GameManager.Instance.GameState == GameState.EndLevelStage)
+            {
+                _countDown--;
+            }
+            AddNewLayer(_oceanTilePrefab);
+        }
+    }
+
+    private void AddNewLayer(GameObject oceanTilePrefab)
+    {
+        var oceanTile = Instantiate(oceanTilePrefab, transform);
+        oceanTile.transform.position = new Vector3(_oceanTiles[_oceanTiles.Count - 1].transform.position.x + widthTile, 0, 0);
+        AddObjectsToTile(oceanTile);
+        _oceanTiles.Add(oceanTile);
+    }
+
+    private void AddObjectsToTile(GameObject oceanTile)
+    {
+        if (GameManager.Instance.GameState != GameState.LevelStage) return;
+        foreach (var floatingObject in _floatingObjects)
+        {
+            var floatingObjectInstance = Instantiate(floatingObject, oceanTile.transform);
+            // the position need to be pixel perfect with the tile
             
-            var oceanTile = Instantiate(_oceanTilePrefab, transform);
-            oceanTile.transform.position = new Vector3(_oceanTiles[_oceanTiles.Count - 1].transform.position.x + widthTile, 0, 0);
-            AddObjectsToTile(oceanTile);
-            _oceanTiles.Add(oceanTile);
+            floatingObjectInstance.transform.localPosition = new Vector3(0, widthTile * (int)Random.Range(-heightTile / 2, heightTile / 2), 0);
         }
     }
 }
