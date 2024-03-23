@@ -18,7 +18,7 @@ public class OceanManager : MonoBehaviour
     private float widthTile;
     private float heightTile;
     private float screenWidth;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +27,16 @@ public class OceanManager : MonoBehaviour
         screenWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
         
         InitOcean();
+
+        GameManager.Instance.OnScoreChange += Instance_OnScoreChange;
     }
-    
+
+    private void Instance_OnScoreChange(GameManager sender, bool isMultiMax, int score)
+    {
+        var speedMultiplier = ScoreManager.CalcOceanSpeedMultiplier(score);
+        _oceanSpeed = SettingsManager.Instance.DEFAULT_OCEAN_SPEED * speedMultiplier;
+    }
+
     private void InitOcean()
     {
         
@@ -58,7 +66,7 @@ public class OceanManager : MonoBehaviour
     {
         foreach (var oceanTile in _oceanTiles)
         {
-            oceanTile.transform.position += new Vector3(_oceanSpeed * Time.deltaTime, 0, 0);
+            oceanTile.transform.position -= new Vector3(_oceanSpeed * Time.deltaTime, 0, 0);
         }
     }
 
