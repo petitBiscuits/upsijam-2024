@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105576462dbe89e4993bdae410dbe1ac, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 5512653347091015849, guid: 8aaaaaca8b1850649a92e2ad7a3fe950, type: 3}
   sprite: {fileID: 0}
   score: 0
   playerDamage: 1
