@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Waste
-  - Fish
-  - Floe
-  - Bear
-  - Rock
   - EndFloe
+  - FloatingObject
   layers:
   - Default
   - TransparentFX

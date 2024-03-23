@@ -20,8 +20,6 @@ public class PlayerColliderController : MonoBehaviour
             throw new System.Exception("Player not found");
 
         player = playerGO.GetComponent<Player>();
-
-        print($"Hello {player}");
     }
 
     void Start()
@@ -31,18 +29,17 @@ public class PlayerColliderController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (gameManager.FloatingObjects.ContainsKey(collider.gameObject))
+        if (collider.gameObject.CompareTag("FloatingObject"))
         {
-            var floatingObject = gameManager.FloatingObjects[collider.gameObject];
-            player.FloeLife -= floatingObject.floeDamage;
-            player.Life -= floatingObject.playerDamage;
-            gameManager.AddScore(floatingObject.score);
-        }
-        else if (collider.gameObject.CompareTag("EndFloe"))
-        {
-            gameManager.ReachedEnd();
-        }
+            FloatingObject floatingObject = collider.gameObject.GetComponent<FloatingObject>();
+            FloatingObjectSO floatingObjectSo = floatingObject.floatingObjectSO;
 
-        print($"Collision !! {player} and {collider.gameObject.tag}");
+            if (floatingObjectSo.score != 0)
+            {
+                gameManager.AddScore(floatingObjectSo.score);
+            }
+
+            Destroy(collider.gameObject);
+        }
     }
 }

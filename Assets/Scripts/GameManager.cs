@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        Player.OnPlayerLife += OnPlayerLifeChange;
+        Player.OnBearCount += OnBearCountChange;
         Player.OnFloeLife += OnFloeLifeChange;
     }
 
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
         if (!isEndPlaced && IsEndInApproach)
         {
             print("End floe placed");
-            var endFloePosition = new Vector3(endDistance, 0, 0); // WIP Pour l'instant ça ne prend pas la bonne coordonée :(
+            var endFloePosition = new Vector3(endDistance, 0, 0); // WIP Pour l'instant a ne prend pas la bonne coordonÃ©e :(
             endFloeGO.transform.position = endFloePosition;
             isEndPlaced = true;
         }
@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
         print($"Floe life change from {before} to {now}");
     }
 
-    private void OnPlayerLifeChange(Player player, int before, int now)
+    private void OnBearCountChange(Player player, int before, int now)
     {
         print($"Player life change from {before} to {now}");
     }

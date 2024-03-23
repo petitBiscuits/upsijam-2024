@@ -1,0 +1,30 @@
+.btn {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-left-color: rgb(43, 43, 43);
+    border-right-color: rgb(43, 43, 43);
+    border-top-color: rgb(43, 43, 43);
+    border-bottom-color: rgb(43, 43, 43);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    background-color: rgb(159, 217, 255);
+}
+
+.btn:hover {
+    background-color: rgb(4, 155, 255);
+    transition-property: background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.score {
+    font-size: 40px;
+}
+
+.biggerScore {
+    font-size: 60px;
+}

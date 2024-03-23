@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
 
     #region Fields of Configuration
     [SerializeField] private float speed = 10f;
-    [SerializeField] private int life = 1;
+    [FormerlySerializedAs("life")] [SerializeField] private int bearCount = 1;
     [SerializeField] private int floeLife = 1;
     #endregion Fields of Configuration
 
@@ -23,14 +24,14 @@ public class Player : MonoBehaviour
     #endregion Fields of Components
 
     #region Properties
-    public int Life
+    public int BearCount
     {
-        get { return life; }
+        get { return bearCount; }
         set
         {
-            if (value != life) {
-                OnPlayerLife?.Invoke(this, life, value);
-                life = value;
+            if (value != bearCount) {
+                OnBearCount?.Invoke(this, bearCount, value);
+                bearCount = value;
             }
         }
     }
@@ -50,7 +51,7 @@ public class Player : MonoBehaviour
     #endregion Properties
 
     #region Event
-    public static event Action<Player, int, int> OnPlayerLife;
+    public static event Action<Player, int, int> OnBearCount;
     public static event Action<Player, int, int> OnFloeLife;
     #endregion Event
 

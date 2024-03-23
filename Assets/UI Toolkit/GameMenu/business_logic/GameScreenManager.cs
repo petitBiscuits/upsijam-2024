@@ -35,6 +35,7 @@ public class GameScreenManager : MonoBehaviour
 
     private void InitCallBack()
     {
+        if (GameManager.Instance == null) return;
         GameManager.Instance.OnDistanceChange += OnDistanceChange;
         GameManager.Instance.OnScoreChange += OnScoreChange;
     }
