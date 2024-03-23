@@ -164,21 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameState: 0
-  availableFloatingObjectSO: []
-  availableFloatingObjectSpawnWeight: 
-  defaultSpawnWeight: 1
-  travelSpeed: 2
-  distance: 0
-  endDistance: 100
-  nextSpawnInDistance: 10
-  minSpawnInDistance: 5
-  maxSpawnInDistance: 15
-  stopSpawnAfterDistance: 70
-  spawnPositionOffset: 15
-  spawnEndFloeOffset: 100
   player: {fileID: 0}
-  oceanGO: {fileID: 0}
-  endFloeGO: {fileID: 0}
 --- !u!1 &702370141
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +348,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DISTANCE_MAX: 10000
   MAX_MULTI: 16
+  LEVEL_SCORE_DIVIDER: 500
+  DEFAULT_OCEAN_SPEED: 1
+  DEFAULT_SPAWN_WEIGHT: 1
 --- !u!1001 &1719807456
 PrefabInstance:
   m_ObjectHideFlags: 0

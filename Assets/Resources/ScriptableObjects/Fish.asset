@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   sprite: {fileID: 0}
-  score: 0
+  score: -30
   playerDamage: 1
   floeDamage: 0

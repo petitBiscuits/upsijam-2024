@@ -83,7 +83,8 @@ public class Player : MonoBehaviour
         if (position.y >= topRight.y)
             velocity.y = Mathf.Min(0, velocity.y);
 
-        rb.velocity = velocity;
+        // Clamp the velocity to a maximum value
+        rb.velocity = Vector2.ClampMagnitude(velocity, speed);
     }
 
     void OnEnable()

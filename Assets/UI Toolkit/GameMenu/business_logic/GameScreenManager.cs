@@ -50,7 +50,7 @@ public class GameScreenManager : MonoBehaviour
         _progression.style.left = Length.Percent((distance / SettingsManager.Instance.DISTANCE_MAX * 100)-2.5f);
     }
 
-    private void OnScoreChange(GameManager arg1, bool arg2, int arg3)
+    private void OnScoreChange(bool arg2, int arg3)
     {
         if (arg2)
         {
