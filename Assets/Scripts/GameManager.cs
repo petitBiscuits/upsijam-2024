@@ -60,8 +60,8 @@ public class GameManager : MonoBehaviour
 
     #region Properties
 
-    private int _currentScore;
-    private int _score;
+    [SerializeField] private int _currentScore;
+    [SerializeField] private int _score;
     private Multi _multi = new Multi();
     private float _timerUpdateScore;
 
@@ -105,14 +105,7 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Add default weight for missing ones
-        if (availableFloatingObjectSO.Count > availableFloatingObjectSpawnWeight.Count)
-        {
-            for (int i = 0; i < availableFloatingObjectSO.Count - availableFloatingObjectSpawnWeight.Count; i++)
-            { 
-                availableFloatingObjectSpawnWeight.Add(defaultSpawnWeight);
-            }
-        }
+
 
         // Distance traveled
         var traveled = travelSpeed * Time.fixedDeltaTime;

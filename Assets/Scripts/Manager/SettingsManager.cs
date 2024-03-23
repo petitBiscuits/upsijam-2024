@@ -8,9 +8,11 @@ public class SettingsManager : MonoBehaviour
     public float DISTANCE_MAX = 10000;
     public int MAX_MULTI = 16;
     public int LEVEL_SCORE_DIVIDER = 500;
-    public int DEFAULT_OCEAN_SPEED = 1;
+    public int DEFAULT_OCEAN_SPEED = 5;
     public int DEFAULT_SPAWN_WEIGHT = 1;
-    
+    public int DEFAULT_SPAWN_PROBA = 40; // 40%
+    public int MAX_TO_SPAWN = 5;
+
     public static SettingsManager Instance { get; private set; }
     
     private void Awake()

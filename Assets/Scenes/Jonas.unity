@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f08df479d15a4bfea4002c73aa2cd9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameState: 0
   availableFloatingObjectSO: []
   availableFloatingObjectSpawnWeight: 
   defaultSpawnWeight: 1
@@ -513,6 +514,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DISTANCE_MAX: 10000
   MAX_MULTI: 16
+  LEVEL_SCORE_DIVIDER: 500
+  DEFAULT_OCEAN_SPEED: 1
+  DEFAULT_SPAWN_WEIGHT: 1
+  DEFAULT_SPAWN_PROBA: 30
 --- !u!1001 &1719807456
 PrefabInstance:
   m_ObjectHideFlags: 0

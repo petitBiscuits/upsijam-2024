@@ -25,7 +25,7 @@ public static class ScoreManager
         return 1 + (level / 2);
     }
 
-    public static int CalcSpawnProbability(int score)
+    public static int CalcMaxToSpawn(int score)
     {
         var level = CalcLevel(score);
         // Level = 1 => spawnProbability = 1
@@ -34,8 +34,8 @@ public static class ScoreManager
         // Level = 4 => spawnProbability = 2
         // Level = 5 => spawnProbability = 3
         // Level = 6 => spawnProbability = 3
-        // etc
-        return 1 + ((level - 1) / 2);
+        // etc jusqu'à un max pour éviter qu'il n'y a plus de place
+        return Mathf.Min(SettingsManager.Instance.MAX_TO_SPAWN, 1 + ((level - 1) / 2));
     }
 
 }
