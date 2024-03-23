@@ -37,7 +37,6 @@ public class OceanManager : MonoBehaviour
             // spawn inside this GameObject
             var oceanTile = Instantiate(_oceanTilePrefab, transform);
             oceanTile.transform.position = new Vector3(startX + i * widthTile, 0, 0);
-            oceanTile.GetComponent<SpriteRenderer>().material.color = new Color(Random.Range(0.5f, 1), Random.Range(0.5f, 1), Random.Range(0.5f, 1), 1);
             
             AddObjectsToTile(oceanTile);
             
@@ -82,7 +81,6 @@ public class OceanManager : MonoBehaviour
             
             var oceanTile = Instantiate(_oceanTilePrefab, transform);
             oceanTile.transform.position = new Vector3(_oceanTiles[_oceanTiles.Count - 1].transform.position.x + widthTile, 0, 0);
-            oceanTile.GetComponent<SpriteRenderer>().material.color = new Color(Random.Range(0.5f, 1), Random.Range(0.5f, 1), Random.Range(0.5f, 1), 1);
             AddObjectsToTile(oceanTile);
             _oceanTiles.Add(oceanTile);
         }
