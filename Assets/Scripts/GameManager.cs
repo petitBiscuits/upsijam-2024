@@ -26,11 +26,25 @@ public class GameManager : MonoBehaviour
     #endregion Properties
 
     #region Event
-    public static event Action<GameManager, int, int> OnScoreChange;
+    public event Action<GameManager, int, int> OnScoreChange;
+    
+    
+    
     #endregion Event
+    
+    public static GameManager Instance { get; private set; }
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         Player.OnPlayerLife += OnPlayerLifeChange;
         Player.OnFloeLife += OnFloeLifeChange;
     }
