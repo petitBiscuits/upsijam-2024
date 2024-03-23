@@ -32,7 +32,7 @@ public class PlayerColliderController : MonoBehaviour
             var floatingObject = gameManager.FloatingObjects[collider.gameObject];
             player.FloeLife -= floatingObject.floeDamage;
             player.Life -= floatingObject.playerDamage;
-            gameManager.Score += floatingObject.score;
+            gameManager.AddScore(floatingObject.score);
         }
 
         print($"Collision !! {player} and {collider.gameObject.tag}");

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,19 +38,11 @@ public class GameManager : MonoBehaviour
     #endregion Fields of GameObjects
 
     #region Properties
-    public int Score
-    {
-        get { return score; }
-        set
-        {
-            if (value != score)
-            {
-                print($"score {score} => {value}");
-                OnScoreChange?.Invoke(this, score, value);
-                score = value;
-            }
-        }
-    }
+
+    private int _currentScore;
+    private int _score;
+    private Multi _multi = new Multi();
+    private float _timerUpdateScore;
 
     public List<FloatingObjectSO> AvailableFloatingObjectSO
     {
@@ -61,12 +54,15 @@ public class GameManager : MonoBehaviour
     #endregion Properties
 
     #region Event
-    public event Action<GameManager, int, int> OnScoreChange;
+    // 1. [GameManager] is the game manager
+    public event Action<GameManager, bool, int> OnScoreChange;
     
-    
+    // 1. [float] is the distance traveled by the player
+    public event Action<float> OnDistanceChange;
     
     #endregion Event
     
+    private float distance = 0;
     public static GameManager Instance { get; private set; }
 
     void Awake()
@@ -145,9 +141,52 @@ public class GameManager : MonoBehaviour
         print($"Player life change from {before} to {now}");
     }
 
+    private void Start()
+    {
+        StartCoroutine(UpdateScore());
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            _score += 100*_multi.Value;
+            print(_score);
+        }
+        if (Keyboard.current.wKey.wasPressedThisFrame)
+        {
+            _multi.UpdateMulti(MultiOperation.Increase);
+        }
+        if (Keyboard.current.sKey.wasPressedThisFrame)
+        {
+            _multi.UpdateMulti(MultiOperation.Decrease);
+        }
         
+        distance += Time.deltaTime;
+        OnDistanceChange?.Invoke(distance);
+    }
+    
+    IEnumerator UpdateScore()
+    {
+        while (true)
+        {
+            float speed = 1 / (float)_multi.Value;
+            if (Mathf.Abs(_currentScore - _score) < 50)
+            {
+                _currentScore = _score;
+            }
+            else
+            {
+                _currentScore = (int)Mathf.Lerp(_currentScore, _score, 0.2f);
+            }
+            OnScoreChange?.Invoke(this, _multi.Value==SettingsManager.Instance.MAX_MULTI, _currentScore);
+            yield return new WaitForSeconds(speed);
+        }
+    }
+
+    public void AddScore(int floatingObjectScore)
+    {
+        _score += floatingObjectScore;
     }
 }
