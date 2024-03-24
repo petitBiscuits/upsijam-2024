@@ -79,12 +79,15 @@ public class GameManager : MonoBehaviour
         if (now <= 0)
             GameManager.Instance.EndReached();
 
+        print($"Bear count change from {before} to {now}");
         if (now != before)
         {
             var op = MultiOperation.Decrease;
             if (now > before)
                 op = MultiOperation.Increase;
+            print($"{_multi.Value} {op}");
             _multi.UpdateMulti(op);
+            print($"Now == {_multi.Value}");
         }
 
     }
@@ -136,7 +139,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int floatingObjectScore)
     {
-        _score += floatingObjectScore;
+        _score += floatingObjectScore * _multi.Value;
     }
 
     public void EndReached()
