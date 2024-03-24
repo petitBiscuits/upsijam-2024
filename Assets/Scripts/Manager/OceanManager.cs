@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class OceanManager : MonoBehaviour
 {
+    [SerializeField] private bool allowSpawn = true;
+    [SerializeField] private float distanceTraveled = 0;
     [SerializeField] private GameObject _oceanTilePrefab;
     [SerializeField] private GameObject _oceanFloePrefab;
     [SerializeField] private GameObject _floePrefab;
@@ -73,7 +75,19 @@ public class OceanManager : MonoBehaviour
         MoveEverything();
 
         RemoveAndCreateNewTiles();
+       
+    }
 
+    private void FixedUpdate()
+    {
+        distanceTraveled += _oceanSpeed * Time.fixedDeltaTime * SettingsManager.Instance.DISTANCE_SIZE_FACTOR;
+        distanceTraveled = Mathf.Min(distanceTraveled, SettingsManager.Instance.DISTANCE_MAX);
+        if (Mathf.Approximately(distanceTraveled, SettingsManager.Instance.DISTANCE_MAX) 
+            || distanceTraveled > SettingsManager.Instance.DISTANCE_MAX)
+        {
+            allowSpawn = false;
+        }
+        GameManager.Instance.InvokeDistanceChange(distanceTraveled);
     }
 
     private void MoveEverything()
@@ -116,7 +130,8 @@ public class OceanManager : MonoBehaviour
     {
         var oceanTile = Instantiate(oceanTilePrefab, transform);
         oceanTile.transform.position = new Vector3(_oceanTiles[_oceanTiles.Count - 1].transform.position.x + widthTile, 0, 0);
-        AddObjectsToTile(oceanTile);
+        if (allowSpawn)
+            AddObjectsToTile(oceanTile);
         _oceanTiles.Add(oceanTile);
     }
 

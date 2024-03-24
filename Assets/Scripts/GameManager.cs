@@ -135,4 +135,9 @@ public class GameManager : MonoBehaviour
     {
         GameState = GameState.EndScreen;
     }
+
+    public void InvokeDistanceChange(float distance)
+    {
+        OnDistanceChange?.Invoke(distance);
+    }
 }
