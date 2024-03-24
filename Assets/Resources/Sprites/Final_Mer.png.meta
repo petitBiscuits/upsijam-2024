@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 295f60b443aba412e8c3ef165d0ad622
+guid: 3c9febe8c3ef640d1881a1bb8f7bce84
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2892580531580925913
-    second: Floating_Ice_0
+      213: 2901704785620992998
+    second: Final_Mer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floating_Ice_0
+      name: Final_Mer_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 72888e2055d7bd7d0800000000000000
-      internalID: -2892580531580925913
+      spriteID: 6e38dfde02de44820800000000000000
+      internalID: 2901704785620992998
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Floating_Ice_0: -2892580531580925913
+      Final_Mer_0: 2901704785620992998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

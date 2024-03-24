@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour
 {
     #region Fields
     public GameState GameState = GameState.LevelStage;
-    private bool isEndReached;
-    private int score = 0;
 
     #endregion Fields
 
@@ -37,6 +35,8 @@ public class GameManager : MonoBehaviour
     private Multi _multi = new Multi();
     private float _timerUpdateScore;
 
+    public int Score => _score;
+    
     #endregion Properties
 
     #region Event
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
     }
 

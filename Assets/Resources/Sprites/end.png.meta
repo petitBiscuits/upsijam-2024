@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 295f60b443aba412e8c3ef165d0ad622
+guid: 38ae9fa6cc6a242e9a010a8e2a3aaf62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2892580531580925913
-    second: Floating_Ice_0
+      213: 7347265049222261331
+    second: end_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -74,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -96,16 +96,29 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floating_Ice_0
+      name: end_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 128
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -114,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 72888e2055d7bd7d0800000000000000
-      internalID: -2892580531580925913
+      spriteID: 35a298182aab6f560800000000000000
+      internalID: 7347265049222261331
       vertices: []
       indices: 
       edges: []
@@ -131,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Floating_Ice_0: -2892580531580925913
+      end_0: 7347265049222261331
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

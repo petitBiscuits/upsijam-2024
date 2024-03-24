@@ -715,16 +715,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
-      propertyPath: _oceanSpeed
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
-      propertyPath: _floatingObjectsWeight.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[0]'
-      value: 10000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[1]'

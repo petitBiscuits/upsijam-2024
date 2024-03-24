@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerColliderController : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class PlayerColliderController : MonoBehaviour
         }
         else if (collider.gameObject.CompareTag("EndFloe"))
         {
-            gameManager.EndReached();
+            SceneManager.LoadScene("HappyEndingScene");
         }
     }
     
