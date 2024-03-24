@@ -63,6 +63,7 @@ public class OceanManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.GameState == GameState.Paused) return;
         // Add default weight for missing ones
         if (_floatingObjects.Count > _floatingObjectsWeight.Count)
         {
@@ -75,17 +76,19 @@ public class OceanManager : MonoBehaviour
         MoveEverything();
 
         RemoveAndCreateNewTiles();
-       
     }
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.GameState == GameState.Paused) return;
+        
         distanceTraveled += _oceanSpeed * Time.fixedDeltaTime * SettingsManager.Instance.DISTANCE_SIZE_FACTOR;
         distanceTraveled = Mathf.Min(distanceTraveled, SettingsManager.Instance.DISTANCE_MAX);
         if (Mathf.Approximately(distanceTraveled, SettingsManager.Instance.DISTANCE_MAX) 
             || distanceTraveled > SettingsManager.Instance.DISTANCE_MAX)
         {
             allowSpawn = false;
+            GameManager.Instance.GameState = GameState.EndLevelStage;
         }
         GameManager.Instance.InvokeDistanceChange(distanceTraveled);
     }

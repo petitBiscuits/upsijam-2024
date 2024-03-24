@@ -9,6 +9,7 @@ TagManager:
   - Waste
   - Fish
   - AudioPlayer
+  - bear
   layers:
   - Default
   - TransparentFX
