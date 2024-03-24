@@ -48,8 +48,9 @@ MonoBehaviour:
   _oceanFloePrefab: {fileID: 4584286814938129862, guid: 902d2774f56324766930c2216d521b93, type: 3}
   _floePrefab: {fileID: 4584286814938129862, guid: d9535f13ee05a4606b9d333b9de3a153, type: 3}
   _floatingObjects:
-  - {fileID: 2701434012123906939, guid: 938b507d7088c45c586ba96510126325, type: 3}
   - {fileID: 2701434012123906939, guid: 92981ab1fbe3b4ed2998766addb23631, type: 3}
+  - {fileID: 2701434012123906939, guid: 938b507d7088c45c586ba96510126325, type: 3}
+  - {fileID: 2701434012123906939, guid: cc972d0dd002ed0498b300e97b724ed5, type: 3}
   - {fileID: 2701434012123906939, guid: 1ac75833864f1456ebb04370f7cc0c09, type: 3}
   _floatingObjectsWeight: 
   _oceanSpeed: -1

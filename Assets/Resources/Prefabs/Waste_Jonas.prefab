@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3150658782237528689}
   - component: {fileID: 9031834767439124244}
   - component: {fileID: 2880436965931378876}
-  - component: {fileID: -6050984037457374024}
-  - component: {fileID: -1939810888108774932}
+  - component: {fileID: 6067911739355593746}
+  - component: {fileID: -8610481305323750786}
   m_Layer: 0
-  m_Name: Fish
+  m_Name: Waste_Jonas
   m_TagString: FloatingObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 727422824878953366, guid: ffb3e7c408d9c564fab354fbdeff8c2e, type: 3}
+  m_Sprite: {fileID: 4145100776150910970, guid: adf758514f354421f9e8cb8580ac66a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c840d454c9de841218eca8613ff5e1fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingObjectSO: {fileID: 11400000, guid: bb928011cf51046cd8f5cca16a6ebb1e, type: 2}
---- !u!58 &-6050984037457374024
+  floatingObjectSO: {fileID: 11400000, guid: 2dbbead9b87a0416095ed7e9b29db3b4, type: 2}
+--- !u!58 &6067911739355593746
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!82 &-1939810888108774932
+--- !u!82 &-8610481305323750786
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,8 +148,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4c3474dc977802c4caaf2a369158e778, type: 3}
-  m_Resource: {fileID: 8300000, guid: 4c3474dc977802c4caaf2a369158e778, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 649055922f73aa147b378494495e24e5, type: 3}
+  m_Resource: {fileID: 8300000, guid: 649055922f73aa147b378494495e24e5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
