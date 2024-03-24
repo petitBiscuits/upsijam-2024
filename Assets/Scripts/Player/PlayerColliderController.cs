@@ -64,4 +64,18 @@ public class PlayerColliderController : MonoBehaviour
             gameManager.EndReached();
         }
     }
+    
+    void ChangeBear(int count)
+    {
+        // Change all children
+        foreach (Transform child in playerGO.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        
+        for (int i = 0; i < count; i++)
+        {
+            playerGO.transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
 }
