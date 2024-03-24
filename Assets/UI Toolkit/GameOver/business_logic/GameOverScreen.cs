@@ -27,8 +27,14 @@ public class GameOverScreen : MonoBehaviour
         _restartButton = _root.Q<Button>("restart");
         _quitButton = _root.Q<Button>("quit");
 
-        _restartButton.RegisterCallback<ClickEvent>(ev => SceneManager.LoadScene("MainScene"));
+        _restartButton.RegisterCallback<ClickEvent>(ev => Test());
         _quitButton.RegisterCallback<ClickEvent>(ev => Application.Quit());
+    }
+
+    void Test()
+    {
+        Destroy(GameManager.Instance);
+        SceneManager.LoadScene("MainScene");
     }
 
     // Update is called once per frame

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Waste
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  sprite: {fileID: 0}
-  score: 100
+  sprites: []
+  score: 30
   playerDamage: 0
   floeDamage: 0

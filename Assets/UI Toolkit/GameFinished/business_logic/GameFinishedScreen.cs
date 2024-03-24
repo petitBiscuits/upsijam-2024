@@ -36,6 +36,7 @@ public class GameFinishedScreen : MonoBehaviour
 
     void Test(ClickEvent ev)
     {
+        Destroy(GameManager.Instance);
         SceneManager.LoadScene("MainScene");
     }
 

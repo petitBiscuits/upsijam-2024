@@ -435,7 +435,7 @@ MonoBehaviour:
   LEVEL_SCORE_DIVIDER: 2000
   DEFAULT_OCEAN_SPEED: 1
   DEFAULT_SPAWN_WEIGHT: 1
-  DEFAULT_SPAWN_PROBA: 40
+  DEFAULT_SPAWN_PROBA: 50
   MAX_TO_SPAWN: 4
   MAX_BEAR: 9
 --- !u!1 &1521145746 stripped
@@ -715,20 +715,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
+      propertyPath: _oceanSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
+      propertyPath: _floatingObjectsWeight.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[0]'
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[1]'
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[2]'
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[3]'
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
