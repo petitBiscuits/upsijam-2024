@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DISTANCE_MAX: 10000
+  DISTANCE_SIZE_FACTOR: 100
   MAX_MULTI: 16
   LEVEL_SCORE_DIVIDER: 500
   DEFAULT_OCEAN_SPEED: 1
@@ -662,10 +663,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4686159506244533716, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
-      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6988437191897665973, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
