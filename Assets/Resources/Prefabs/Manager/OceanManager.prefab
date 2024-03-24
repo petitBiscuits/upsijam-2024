@@ -50,4 +50,7 @@ MonoBehaviour:
   _floatingObjects:
   - {fileID: 2701434012123906939, guid: 938b507d7088c45c586ba96510126325, type: 3}
   - {fileID: 2701434012123906939, guid: 92981ab1fbe3b4ed2998766addb23631, type: 3}
+  - {fileID: 2701434012123906939, guid: 1ac75833864f1456ebb04370f7cc0c09, type: 3}
+  _floatingObjectsWeight: 
   _oceanSpeed: -1
+  _maxToSpawn: 0
