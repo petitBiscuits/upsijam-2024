@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -45,6 +46,9 @@ public class GameManager : MonoBehaviour
     // 1. [float] is the distance traveled by the player
     public event Action<float> OnDistanceChange;
     
+    // 1. [float] is the distance traveled by the player
+    public event Action<bool> OnPause;
+    
     #endregion Event
     
     public static GameManager Instance { get; private set; }
@@ -72,9 +76,8 @@ public class GameManager : MonoBehaviour
 
     private void OnBearCountChange(Player player, int before, int now)
     {
-        print($"Player life change from {before} to {now}");
         if (now <= 0)
-            print("LOSE !!!");
+            GameManager.Instance.EndReached();
 
         if (now != before)
         {
@@ -99,20 +102,16 @@ public class GameManager : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            _score += 100*_multi.Value;
-            print(_score);
-        }
-        if (Keyboard.current.uKey.wasPressedThisFrame)
-        {
-            _multi.UpdateMulti(MultiOperation.Increase);
-        }
-        if (Keyboard.current.jKey.wasPressedThisFrame)
-        {
-            _multi.UpdateMulti(MultiOperation.Decrease);
-        } 
-        if (Keyboard.current.gKey.wasPressedThisFrame)
-        {
-            GameState = GameState.EndLevelStage;
+            if (GameState == GameState.Paused)
+            {
+                GameState = GameState.LevelStage;
+                OnPause?.Invoke(false);
+            }
+            else
+            {
+                GameState = GameState.Paused;
+                OnPause?.Invoke(true);
+            }
         }
         
     }
@@ -130,7 +129,6 @@ public class GameManager : MonoBehaviour
             {
                 _currentScore = (int)Mathf.Lerp(_currentScore, _score, 0.2f);
             }
-            print($"{_multi.Value}, {SettingsManager.Instance.MAX_MULTI},  {_multi.Value == SettingsManager.Instance.MAX_MULTI}");
             OnScoreChange?.Invoke(_multi.Value==SettingsManager.Instance.MAX_MULTI, _currentScore);
             yield return new WaitForSeconds(speed);
         }
@@ -144,6 +142,7 @@ public class GameManager : MonoBehaviour
     public void EndReached()
     {
         GameState = GameState.EndScreen;
+        SceneManager.LoadScene("GameOverScene");
     }
 
     public void InvokeDistanceChange(float distance)

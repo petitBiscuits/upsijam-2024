@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameScreenManager : MonoBehaviour
@@ -14,6 +15,10 @@ public class GameScreenManager : MonoBehaviour
 
     private VisualElement _life;
     
+    private VisualElement _pause;
+    private VisualElement _resumeButton;
+    private VisualElement _restartButton;
+    private VisualElement _rageQuit;
     
     // Start is called before the first frame update
     void Start()
@@ -31,6 +36,15 @@ public class GameScreenManager : MonoBehaviour
         _progression = _root.Q<VisualElement>("progression");
         
         _scoreLabel = _root.Q<Label>("score");
+        
+        _pause = _root.Q<VisualElement>("pause");
+        _resumeButton = _pause.Q<VisualElement>("resumeButton");
+        _restartButton = _pause.Q<VisualElement>("restartButton");
+        _rageQuit = _pause.Q<VisualElement>("rageQuit");
+        
+        _resumeButton.RegisterCallback<ClickEvent>(ev => GameManager.Instance.GameState = GameState.LevelStage);
+        _restartButton.RegisterCallback<ClickEvent>(ev => SceneManager.LoadScene("MainScene"));
+        _rageQuit.RegisterCallback<ClickEvent>(ev => Application.Quit());
     }
 
     private void InitCallBack()
@@ -38,6 +52,12 @@ public class GameScreenManager : MonoBehaviour
         if (GameManager.Instance == null) return;
         GameManager.Instance.OnDistanceChange += OnDistanceChange;
         GameManager.Instance.OnScoreChange += OnScoreChange;
+        GameManager.Instance.OnPause += OnPause;
+    }
+
+    private void OnPause(bool arg)
+    {
+        _pause.style.display = arg ? DisplayStyle.Flex : DisplayStyle.None;
     }
 
     private void OnDistanceChange(float distance)

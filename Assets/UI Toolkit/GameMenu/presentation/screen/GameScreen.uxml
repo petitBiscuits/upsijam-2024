@@ -3,9 +3,14 @@
     <Style src="project://database/Assets/UI%20Toolkit/USS/main-style.uss?fileID=7433441132597879392&amp;guid=4736a6e4ff2a145118428826e09a2b7d&amp;type=3#main-style" />
     <engine:VisualElement style="flex-grow: 1;">
         <engine:VisualElement style="align-items: center; -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght%20SDF.asset?fileID=11400000&amp;guid=4c38dd8006879409db8135de8df99d70&amp;type=2#PixelifySans-VariableFont_wght SDF&quot;);">
-            <engine:Label text="1&apos;602" name="score" class="score" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/Pixelify_Sans/static/PixelifySans-Bold%20SDF.asset?fileID=11400000&amp;guid=3bfa6cde96aeb41d1b1ae71f1823518c&amp;type=2#PixelifySans-Bold SDF&quot;); transition-property: font-size; transition-duration: 1s; transition-timing-function: ease-in-out;" />
+            <engine:Label text="1&apos;602" name="score" class="score" style="-unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/Fonts/Pixelify_Sans/static/PixelifySans-Bold%20SDF.asset?fileID=11400000&amp;guid=3bfa6cde96aeb41d1b1ae71f1823518c&amp;type=2#PixelifySans-Bold SDF&quot;); transition-property: font-size; transition-duration: 1s; transition-timing-function: ease-in-out; color: rgb(255, 255, 255);" />
         </engine:VisualElement>
         <engine:VisualElement style="flex-grow: 1;" />
         <engine:Instance template="TProgressDist" style="min-height: 30px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;" />
+    </engine:VisualElement>
+    <engine:VisualElement name="pause" style="flex-grow: 1; position: absolute; top: 0; left: 0; bottom: 0; right: 0; justify-content: space-evenly; align-items: center; background-color: rgba(27, 35, 38, 0.8); display: none;">
+        <engine:Button text="Resume" name="resumeButton" enable-rich-text="true" class="btn" />
+        <engine:Button text="Restart" name="restartButton" class="btn" />
+        <engine:Button text="Rage Quit" name="rageQuit" class="btn" />
     </engine:VisualElement>
 </engine:UXML>

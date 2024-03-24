@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerColliderController : MonoBehaviour
@@ -11,6 +13,8 @@ public class PlayerColliderController : MonoBehaviour
     #region Fields of Components
     private GameManager gameManager;
     private Player player;
+    [SerializeField]private List<GameObject> bears;
+    [SerializeField]private List<GameObject> floes;
     #endregion Fields of Components
 
     void Awake()
@@ -20,12 +24,12 @@ public class PlayerColliderController : MonoBehaviour
             throw new System.Exception("Player not found");
 
         player = playerGO.GetComponent<Player>();
-        ChangeBear(player.BearCount);
     }
 
     void Start()
     {
         gameManager = GameManager.Instance;
+        ChangeBear(player.BearCount);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -72,15 +76,24 @@ public class PlayerColliderController : MonoBehaviour
     
     void ChangeBear(int count)
     {
-        // Change all children
-        foreach (Transform child in playerGO.transform)
-        {
-            child.gameObject.SetActive(false);
-        }
+        // get all recursive children name bear*
+        var bearCount = bears.OrderBy(b => b.name).ToArray();
         
+        if (count / (float)3 > 1) floes[0].SetActive(true);
+        else floes[0].SetActive(false);
+        
+        if (count / (float)3 > 2) floes[1].SetActive(true);
+        else floes[1].SetActive(false);
+        
+        // hide all bear
+        foreach (var bear in bearCount)
+        {
+            bear.SetActive(false);
+        }
+
         for (int i = 0; i < count; i++)
         {
-            playerGO.transform.GetChild(i).gameObject.SetActive(true);
+            bearCount[i].SetActive(true);
         }
     }
 }
