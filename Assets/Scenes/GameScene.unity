@@ -431,8 +431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DISTANCE_MAX: 10000
   DISTANCE_SIZE_FACTOR: 100
-  MAX_MULTI: 9
-  LEVEL_SCORE_DIVIDER: 500
+  MAX_MULTI: 256
+  LEVEL_SCORE_DIVIDER: 2000
   DEFAULT_OCEAN_SPEED: 1
   DEFAULT_SPAWN_WEIGHT: 1
   DEFAULT_SPAWN_PROBA: 40
@@ -456,6 +456,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1487149071226422462, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487149071226422462, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1487149071226422462, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -537,6 +545,14 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5793094380893690485, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+      propertyPath: m_Size.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793094380893690485, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793094380893690485, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
       propertyPath: m_SpriteTilingProperty.border.w
       value: 0
       objectReference: {fileID: 0}
@@ -554,11 +570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5793094380893690485, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.66
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 5793094380893690485, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.65
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 6780598891231201794, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
       propertyPath: m_TagString
@@ -699,12 +715,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
+      propertyPath: _oceanSpeed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: _floatingObjectsWeight.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[0]'
-      value: 1
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[1]'
@@ -716,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8873900469913197649, guid: 17f1034abf351478d8ca6915cedeb728, type: 3}
       propertyPath: '_floatingObjectsWeight.Array.data[3]'
-      value: 1000
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

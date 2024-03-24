@@ -24,8 +24,8 @@ public class GameOverScreen : MonoBehaviour
     
     private void InitWidgets()
     {
-        _restartButton = _root.Q<Button>("restartButton");
-        _quitButton = _root.Q<Button>("quitButton");
+        _restartButton = _root.Q<Button>("restart");
+        _quitButton = _root.Q<Button>("quit");
 
         _restartButton.RegisterCallback<ClickEvent>(ev => SceneManager.LoadScene("MainScene"));
         _quitButton.RegisterCallback<ClickEvent>(ev => Application.Quit());

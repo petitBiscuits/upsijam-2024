@@ -79,11 +79,37 @@ public class PlayerColliderController : MonoBehaviour
         // get all recursive children name bear*
         var bearCount = bears.OrderBy(b => b.name).ToArray();
         
-        if (count / (float)3 > 1) floes[0].SetActive(true);
-        else floes[0].SetActive(false);
+        if (count / (float)3 > 1)
+        {
+            floes[0].SetActive(true);
+            //Change Bounds of boxCollider
+            var boxCollider = GetComponent<BoxCollider2D>();
+            boxCollider.offset = new Vector2(-0.3f, 0);
+            boxCollider.size = new Vector2(1.2f, 0.64f);
+        }
+        else
+        {
+            floes[0].SetActive(false);
+            var boxCollider = GetComponent<BoxCollider2D>();
+            boxCollider.offset = new Vector2(0, 0);
+            boxCollider.size = new Vector2(0.64f, 0.64f);
+        };
         
-        if (count / (float)3 > 2) floes[1].SetActive(true);
-        else floes[1].SetActive(false);
+        if (count / (float)3 > 2)
+        {
+            floes[1].SetActive(true);
+            //Change Bounds of boxCollider
+            var boxCollider = GetComponent<BoxCollider2D>();
+            boxCollider.offset = new Vector2(0f, 0);
+            boxCollider.size = new Vector2(1.8f, 0.64f);
+        }
+        else
+        {
+            floes[1].SetActive(false);
+            var boxCollider = GetComponent<BoxCollider2D>();
+            boxCollider.offset = new Vector2(0, 0);
+            boxCollider.size = new Vector2(0.64f, 0.64f);
+        };
         
         // hide all bear
         foreach (var bear in bearCount)
