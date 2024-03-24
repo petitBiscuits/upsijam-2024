@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Rock
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  sprite: {fileID: 0}
+  sprites:
+  - {fileID: 4390033149433182506, guid: 27205bef1633dfa43b400778131fbc8f, type: 3}
+  - {fileID: -8896454144639756399, guid: 558a2d144c45416408739288da5a0b52, type: 3}
   score: 0
   playerDamage: 0
   floeDamage: 1

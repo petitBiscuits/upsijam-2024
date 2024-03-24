@@ -170,6 +170,15 @@ public class OceanManager : MonoBehaviour
             }
 
             var floatingObjectInstance = Instantiate(objectToSpawn, oceanTile.transform);
+            var so = objectToSpawn.GetComponent<FloatingObject>()?.floatingObjectSO;
+            if (so != null)
+            {
+                if (so.sprites.Count > 0)
+                {
+                    var spriteIdx = Random.Range(0, so.sprites.Count);
+                    floatingObjectInstance.GetComponent<SpriteRenderer>().sprite = so.sprites[spriteIdx];
+                }
+            }
             // the position need to be pixel perfect with the tile
 
             floatingObjectInstance.transform.localPosition = new Vector3(0, widthTile * (int)Random.Range(-heightTile / 2, heightTile / 2), 0);
