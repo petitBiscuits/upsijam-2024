@@ -6,6 +6,9 @@ TagManager:
   tags:
   - EndFloe
   - FloatingObject
+  - Waste
+  - Fish
+  - AudioPlayer
   layers:
   - Default
   - TransparentFX

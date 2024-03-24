@@ -49,6 +49,14 @@ public class PlayerColliderController : MonoBehaviour
                 player.BearCount = Mathf.Clamp(player.BearCount, 0, maxBear);
             }
 
+            if (floatingObject.TryGetComponent<AudioSource>(out var audioSource))
+            {
+                var audioPlayer = GameObject.FindGameObjectWithTag("AudioPlayer").GetComponent<AudioSource>();
+                audioPlayer.clip = audioSource.clip;
+                audioPlayer.volume = audioSource.volume;
+                audioPlayer.Play();
+            }
+
             Destroy(collider.gameObject);
         }
         else if (collider.gameObject.CompareTag("EndFloe"))

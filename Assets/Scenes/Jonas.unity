@@ -255,21 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameState: 0
-  availableFloatingObjectSO: []
-  availableFloatingObjectSpawnWeight: 
-  defaultSpawnWeight: 1
-  travelSpeed: 2
-  distance: 0
-  endDistance: 100
-  nextSpawnInDistance: 10
-  minSpawnInDistance: 5
-  maxSpawnInDistance: 15
-  stopSpawnAfterDistance: 70
-  spawnPositionOffset: 15
-  spawnEndFloeOffset: 100
   player: {fileID: 0}
-  oceanGO: {fileID: 0}
-  endFloeGO: {fileID: 0}
   _currentScore: 0
   _score: 0
 --- !u!1 &702370141
@@ -571,9 +557,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4450607102802850725, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+      propertyPath: m_Size.x
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450607102802850725, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+      propertyPath: m_Size.y
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450607102802850725, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3888152954397743168, guid: 7588aa3983a0d473e8122f2f345e8a38, type: 3}
+      objectReference: {fileID: 6343770321353105566, guid: 371d557bb86194a869d17b82d325c990, type: 3}
+    - target: {fileID: 4450607102802850725, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5512653347091015849, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
       propertyPath: m_Name
       value: Player
@@ -610,6 +608,63 @@ PrefabInstance:
       addedObject: {fileID: 422853255}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d1f403e5d0846a18b2d51417412b57, type: 3}
+--- !u!1001 &1837563539116736712
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.42500788
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.016207924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.009202534
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132820563454266235, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988437191897665973, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
+      propertyPath: m_Name
+      value: Audio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8cfd1e80209891b47a4e958ad63d5626, type: 3}
 --- !u!1001 &4425927237904051223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -743,3 +798,4 @@ SceneRoots:
   - {fileID: 769102208}
   - {fileID: 4425927237904051223}
   - {fileID: 1719807456}
+  - {fileID: 1837563539116736712}
