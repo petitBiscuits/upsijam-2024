@@ -75,6 +75,15 @@ public class GameManager : MonoBehaviour
         print($"Player life change from {before} to {now}");
         if (now <= 0)
             print("LOSE !!!");
+
+        if (now != before)
+        {
+            var op = MultiOperation.Decrease;
+            if (now > before)
+                op = MultiOperation.Increase;
+            _multi.UpdateMulti(op);
+        }
+
     }
 
     private void Start()
@@ -93,11 +102,11 @@ public class GameManager : MonoBehaviour
             _score += 100*_multi.Value;
             print(_score);
         }
-        if (Keyboard.current.wKey.wasPressedThisFrame)
+        if (Keyboard.current.uKey.wasPressedThisFrame)
         {
             _multi.UpdateMulti(MultiOperation.Increase);
         }
-        if (Keyboard.current.sKey.wasPressedThisFrame)
+        if (Keyboard.current.jKey.wasPressedThisFrame)
         {
             _multi.UpdateMulti(MultiOperation.Decrease);
         } 
@@ -121,6 +130,7 @@ public class GameManager : MonoBehaviour
             {
                 _currentScore = (int)Mathf.Lerp(_currentScore, _score, 0.2f);
             }
+            print($"{_multi.Value}, {SettingsManager.Instance.MAX_MULTI},  {_multi.Value == SettingsManager.Instance.MAX_MULTI}");
             OnScoreChange?.Invoke(_multi.Value==SettingsManager.Instance.MAX_MULTI, _currentScore);
             yield return new WaitForSeconds(speed);
         }

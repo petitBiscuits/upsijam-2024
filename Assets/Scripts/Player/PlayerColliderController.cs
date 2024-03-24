@@ -20,6 +20,7 @@ public class PlayerColliderController : MonoBehaviour
             throw new System.Exception("Player not found");
 
         player = playerGO.GetComponent<Player>();
+        ChangeBear(player.BearCount);
     }
 
     void Start()
@@ -40,13 +41,17 @@ public class PlayerColliderController : MonoBehaviour
             }
             if (floatingObjectSo.playerDamage != 0)
             {
-                player.BearCount -= floatingObjectSo.playerDamage;
+                var currentCount = player.BearCount;
+                currentCount -= floatingObjectSo.playerDamage;
+                currentCount = Mathf.Clamp(currentCount, 0, SettingsManager.Instance.MAX_BEAR);
+                player.BearCount = currentCount;
+                ChangeBear(player.BearCount);
             }
             if (floatingObjectSo.floeDamage != 0)
             {
-                player.FloeLife -= floatingObjectSo.floeDamage;
-                var maxBear = player.FloeLife * SettingsManager.Instance.MAX_BEAR_PER_FLOE;
-                player.BearCount = Mathf.Clamp(player.BearCount, 0, maxBear);
+                //player.FloeLife -= floatingObjectSo.floeDamage;
+                //var maxBear = player.FloeLife * SettingsManager.Instance.MAX_BEAR_PER_FLOE;
+                //player.BearCount = Mathf.Clamp(player.BearCount, 0, maxBear);
             }
 
             if (floatingObject.TryGetComponent<AudioSource>(out var audioSource))
